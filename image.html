@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.4.7.2 (Linux)"/>
+	<meta name="created" content="2022-09-19T10:49:54.785123906"/>
+	<meta name="changed" content="2022-09-19T10:50:22.974759402"/>
+	<style type="text/css">
+		code.western { font-family: "Liberation Mono", "Courier New", monospace }
+		code.cjk { font-family: "Noto Sans Mono CJK SC", monospace }
+		code.ctl { font-family: "Liberation Mono", "Courier New", monospace }
+	</style>
+</head>
+<body lang="en-IN" dir="ltr"><p align="left" style="margin-bottom: 0cm">
+<u><b>Upload.html</b></u></p>
+<p align="left" style="margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0cm"><br/>
+
+</p>
+<p align="left" style="font-weight: normal; text-decoration: none">&lt;!doctype
+html&gt;</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	&lt;h2&gt;Select
+multiple images to upload and display&lt;/h2&gt;</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	&lt;form
+method=&quot;post&quot; action=&quot;/&quot;
+enctype=&quot;multipart/form-data&quot;&gt;</p>
+<p align="left" style="font-weight: normal; text-decoration: none">		&lt;p&gt;</p>
+<p align="left" style="font-weight: normal; text-decoration: none">			&lt;input
+type=&quot;file&quot; name=&quot;files&quot; multiple=&quot;true&quot;
+autocomplete=&quot;off&quot; 					required&gt;</p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">			</span></span><code class="western"><font face="Liberation Serif, Times New Roman, serif">&lt;label
+class=&quot;custom-file-label&quot; for=&quot;</font></code><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">files</span></span></font></code><code class="western"><font face="Liberation Serif, Times New Roman, serif">&quot;&gt;Select
+image...&lt;/label&gt;</font></code></p>
+<p align="left" style="font-weight: normal; text-decoration: none"><br/>
+<br/>
+
+</p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">			&lt;/p&gt;</span></span></p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">			&lt;p&gt;&lt;input
+type=&quot;submit&quot; value=&quot;Submit&quot;&gt;&lt;/P&gt;</span></span></p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;br/&gt;		</span></span></p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">	&lt;/form&gt;</span></span></p>
+<p align="left" style="font-weight: normal; text-decoration: none"><br/>
+<br/>
+
+</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	{%
+if filenames %}</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	{%
+for filename in filenames %}</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	&lt;div&gt;</p>
+<p align="left" style="font-weight: normal; text-decoration: none">		&lt;img
+src=&quot;{{ url_for('display_image', filename=filename) }}&quot;&gt;</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	&lt;/div&gt;</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	{%endfor%}</p>
+<p align="left" style="font-weight: normal; text-decoration: none">	{%endif%}</p>
+<p align="left" style="font-weight: normal; text-decoration: none"><br/>
+<br/>
+
+</p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">	&lt;form
+method=&quot;post&quot; action=&quot;/convert&quot;&gt;</span></span></p>
+<p align="left" style="margin-bottom: 0cm"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;h1&gt;&lt;b&gt;Image
+Conversion&lt;/b&gt;&lt;/h1&gt;</span></span></font></code></p>
+<p align="left"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;input
+type=&quot;file&quot; name=&quot;img_file&quot; /&gt;</span></span></font></code></p>
+<p align="left"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;label
+class=&quot;custom-file-label&quot; for=&quot;mg_file&quot;&gt;Select
+image...&lt;/label&gt;</span></span></font></code></p>
+<p align="left"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;button
+type=&quot;submit&quot; name=”convert” class=&quot;btn
+btn-primary&quot;&gt;Convert&lt;/button&gt;</span></span></font></code></p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">	&lt;/form&gt;</span></span></p>
+<p align="left" style="margin-bottom: 0cm"><span style="text-decoration: none"><span style="font-weight: normal">	&lt;form
+method=&quot;post&quot; action=&quot;/compress&quot;&gt;</span></span></p>
+<p align="left" style="margin-bottom: 0cm"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;h1&gt;&lt;b&gt;</span></span></font></code><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">Image
+Compression</span></span></font></code><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">&lt;/b&gt;&lt;/h1&gt;</span></span></font></code></p>
+<p align="left"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;input
+type=&quot;file&quot; name=&quot;img_file&quot; /&gt;</span></span></font></code></p>
+<p align="left"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;label
+class=&quot;custom-file-label&quot; for=&quot;mg_file&quot;&gt;Select
+image...&lt;/label&gt;</span></span></font></code></p>
+<p align="left"><code class="western"><font face="Liberation Serif, Times New Roman, serif"><span style="text-decoration: none"><span style="font-weight: normal">		&lt;button
+type=&quot;submit&quot; name=”convert” class=&quot;btn btn-		   
+					primary&quot;&gt;Compress&lt;/button&gt;</span></span></font></code></p>
+<p align="left"><span style="text-decoration: none"><span style="font-weight: normal">	&lt;/form&gt;</span></span></p>
+</body>
+</html>
